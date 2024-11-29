@@ -4,6 +4,7 @@
 
 services:
   vote:
+    image: vote-service
     build: ./vote
     # use python rather than gunicorn for local dev
     command: python app.py
@@ -19,6 +20,7 @@ services:
       - back-tier
 
   result:
+    image: result-service
     build: ./result
     # use nodemon rather than node for local dev
     command: nodemon server.js
@@ -35,6 +37,7 @@ services:
       - back-tier
 
   worker:
+    image: worker-service
     build:
       context: ./worker
     depends_on:
