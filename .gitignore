@@ -4,3 +4,26 @@ bin/
 obj/
 .vs/
 node_modules/
+
+# Local .terraform directories
+**/.terraform/*
+
+# Ignore variables files
+*.auto.tfvars
+
+# Ignore override files
+*.tfoverride
+
+# Ignore environment-specific files
+.envrc
+
+# Ignore CLI configuration files
+.terraformrc
+terraform.rc
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# tfplan
+tfplan

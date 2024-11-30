@@ -1,0 +1,23 @@
+[
+    {
+        "name": "${app_name}",
+        "image": "${app_image}",
+        "cpu": ${fargate_cpu},
+        "memory": ${fargate_memory},
+        "networkMode": "awsvpc",
+        "logConfiguration": {
+            "logDriver": "awslogs",
+            "options": {
+                "awslogs-group": "/ecs/${app_name}",
+                "awslogs-region": "${aws_region}",
+                "awslogs-stream-prefix": "${app_name}"
+            }
+        }
+        %{ if environment != null ~}
+        , "environment": ${environment}
+        %{ endif ~}
+        %{ if port_mappings != null ~}
+        , "portMappings": ${port_mappings}
+        %{ endif ~}
+    }
+]
